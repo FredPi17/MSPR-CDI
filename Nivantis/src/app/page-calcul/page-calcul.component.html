@@ -1,0 +1,23 @@
+<h1> Optimisation des achats </h1>
+<form [formGroup]="calculForm">
+  <div class="form-group">
+    <label>Prix d'achat brut:</label>
+    <input [(ngModel)]=model.prixAchatBrut ng-model-options="{ getterSetter: true }" type="number" formControlName="prixachatbrut"/>
+  </div>
+  <div class="form-group">
+    <label>Taux de remise:</label>
+    <input [(ngModel)]=model.tauxRemise ng-model-options="{ getterSetter: true }" type="number" formControlName="tauxremise"/>
+  </div>
+  <div class="form-group">
+    <label>Prix d'achat net:</label>
+    <input [(ngModel)]=model.prixAchatNet ng-model-options="{ getterSetter: true }" type="number" formControlName="prixachatnet"/>
+  </div>
+  <div class="form-group">
+    <label>Prix de vente net:</label>
+    <input [(ngModel)]=model.prixVenteNet ng-model-options="{ getterSetter: true }" type="number" formControlName="prixventenet"/>
+  </div>
+  <div class="form-group">
+    <label>Coefficient multiplicateur:</label>
+    <input [(ngModel)]=model.coefficient ng-model-options="{ getterSetter: true }" type="number" formControlName="coefficient"/>
+  </div>
+</form>
