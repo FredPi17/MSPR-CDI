@@ -1,8 +1,7 @@
 {
   "name": "Nivantis",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "La team B3 the best",
   "main": "src/electron-starter.js",
   "scripts": {
     "ng": "ng",
