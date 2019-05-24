@@ -25,7 +25,10 @@ export class PageCalculComponent implements OnInit {
       tauxremise: new FormControl('', {updateOn : 'blur'}),
       coefficient: new FormControl('', {updateOn : 'blur'})
     });
+
   }
+
+  get f() {return this.calculForm.controls; }
 }
 
 
