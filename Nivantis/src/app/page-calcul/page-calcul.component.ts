@@ -14,7 +14,7 @@ export class PageCalculComponent implements OnInit {
   model: CalculData;
 
   constructor(private formBuilder: FormBuilder) {
-    this.model = new CalculData(0,0,0,0,0);
+    this.model = new CalculData(0,0,0);
   }
 
   ngOnInit() {
