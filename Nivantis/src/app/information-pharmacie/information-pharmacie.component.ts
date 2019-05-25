@@ -40,15 +40,10 @@ export class InformationPharmacieComponent implements OnInit {
   ngOnInit() {  }
 
   getPharmacieByID(id: number): Pharmacie {
-    console.log('pharmas :', this.pharmacies);
-    console.log('id :', id);
-    console.log(this.pharmacies.find(x => x.id === id));
     return this.pharmacies.find(x => x.id === id);
   }
 
   onSelect(pharmacieID: number) {
-    const pharmacie = this.getPharmacieByID(pharmacieID);
-    console.log('got pharmacie ', pharmacie);
-    this.selectedPharmacie = pharmacie;
+    this.selectedPharmacie = this.getPharmacieByID(Number(pharmacieID));
   }
 }

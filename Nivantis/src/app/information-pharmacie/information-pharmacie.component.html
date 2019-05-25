@@ -1,13 +1,13 @@
-<h1> Informations Pharmacies</h1>
-
-<select (change)="onSelect($event.target.value)">
-  <option value="null" disabled>Select a Pharmacie</option>
-  <option *ngFor="let pharmacie of pharmacies"
-          [value]="pharmacie.id">{{ pharmacie.name }}</option>
-</select>
+<h1> Informations Pharmacie :
+  <select (change)="onSelect($event.target.value)">
+    <option value="null" ></option>
+    <option *ngFor="let pharmacie of pharmacies"
+            [value]="pharmacie.id">{{ pharmacie.name }}</option>
+  </select>
+</h1>
 
 <div *ngIf="selectedPharmacie">
-  <h2>{{ selectedPharmacie.name | uppercase}} Détails</h2>
+  <br />
   <div><span>id: </span>{{selectedPharmacie.id}}</div>
   <div>
     <label>name:
