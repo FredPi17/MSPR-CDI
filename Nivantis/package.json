@@ -45,8 +45,8 @@
     "@ionic/angular": "^4.1.0",
     "@ionic/pro": "2.0.4",
     "bootstrap": "^4.3.1",
-    "cordova-android": "8.0.0",
-    "cordova-ios": "5.0.1",
+    "cordova-android": "^8.0.0",
+    "cordova-ios": "^5.0.1",
     "cordova-plugin-ionic": "~5.0.0",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
@@ -104,8 +104,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
