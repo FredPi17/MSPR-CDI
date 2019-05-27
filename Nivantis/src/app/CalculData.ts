@@ -13,7 +13,11 @@ export class CalculData {
 
 
     get prixAchatBrut(): number {
-        return this._prixAchatBrut;
+        if ( this._prixAchatBrut != 0 && this._prixAchatBrut != null) {
+            return this._prixAchatBrut;
+        } else {
+            return 0;
+        }
     }
 
     set prixAchatBrut(value: number) {
@@ -42,15 +46,15 @@ export class CalculData {
     }
 
     set prixAchatNet(value: number) {
-        if ( this.prixAchatBrut == 0) {
-            this._tauxRemise = 0;
-        } else {
+        if ( this.prixAchatBrut != 0 && this.prixAchatBrut != null) {
             this._tauxRemise = this.round((1 - (value / this._prixAchatBrut)) * 100,2);
+        } else {
+            this._tauxRemise = 0;
         }
     }
 
     get coefficient(): number {
-        if (this.prixAchatNet != 0)
+        if (this.prixAchatNet != 0 && this.prixAchatNet != null)
         {
             return this.round((this._prixVenteNet / this.prixAchatNet), 2);
         } else {
