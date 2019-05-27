@@ -1,15 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-<<<<<<< HEAD
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
-import { PageCalculComponent } from './page-calcul.component';
 import {CalculData} from '../CalculData';
-
-=======
 import { PageCalculComponent } from './page-calcul.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
->>>>>>> c3329049c8a9fb974aeaefa3ad1f9e6700465a79
+
 describe('PageCalculComponent', () => {
   let component: PageCalculComponent;
   let fixture: ComponentFixture<PageCalculComponent>;
@@ -18,12 +12,7 @@ describe('PageCalculComponent', () => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule ],
       declarations: [ PageCalculComponent ],
-<<<<<<< HEAD
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-=======
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [FormsModule, ReactiveFormsModule]
->>>>>>> c3329049c8a9fb974aeaefa3ad1f9e6700465a79
     })
     .compileComponents();
   }));
