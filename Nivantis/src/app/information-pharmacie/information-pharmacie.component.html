@@ -2,16 +2,26 @@
   <select (change)="onSelect($event.target.value)">
     <option value="null" ></option>
     <option *ngFor="let pharmacie of pharmacies"
-            [value]="pharmacie.id">{{ pharmacie.name }}</option>
+            [value]="pharmacie.id">{{ pharmacie.nom }}</option>
   </select>
 </h1>
 
 <div *ngIf="selectedPharmacie">
   <br />
-  <div><span>id: </span>{{selectedPharmacie.id}}</div>
   <div>
-    <label>name:
-      <input [(ngModel)]="selectedPharmacie.name" placeholder="name" />
+    <label>Nom :
+      <input [(ngModel)]="selectedPharmacie.nom" placeholder="nom" />
+    </label>
+    <br />
+    <label>Adresse :
+      <input [(ngModel)]="selectedPharmacie.adresse" placeholder="adresse" />
+    </label>
+    <br />
+    <label>Personnel :
+      <input [(ngModel)]="selectedPharmacie.nbPersonnel" placeholder="personnel" />
+    </label>
+    <label>Besoin :
+      <input [(ngModel)]="selectedInformations.besoin" />
     </label>
   </div>
 </div>
