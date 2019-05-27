@@ -52,6 +52,13 @@ describe('PageCalculComponent', () => {
     expect(result).toBe(90);
   });
 
+  it('quand insertion prix achat brut 40 et taux de remise 50 deverait retouner prix achat net 20 ', () => {
+    component.calculForm.controls.prixachatbrut.setValue(40);
+    component.calculForm.controls.tauxremise.setValue(50);
+    expect(component.model.prixAchatNet).toBe(20);
+  });
+
+
   // Coefficient multiplicateur
   it('Doit retourner un coefficient multiplicateur de 1,25 quand le prix de vente net est de 100, ' +
       'le prix d\'achat net est de 80 et le prix d\'achat brut est de 120', () => {
@@ -63,6 +70,13 @@ describe('PageCalculComponent', () => {
     expect(result).toBe(1.25);
   });
 
+  it('quand insertion prix achat brut 20, prix achat net 18 et prix vente net 90 retouner coefficient multiplicateur 5', () => {
+    component.calculForm.controls.prixachatbrut.setValue(20);
+    component.calculForm.controls.prixachatnet.setValue(18);
+    component.calculForm.controls.prixventenet.setValue(90);
+    expect(component.model.coefficient).toBe(5);
+  });
+
 
   // Prix de vente net
   it('Doit retourner un prix de vente net de 125 quand le prix d\'achat net est de 100' +
@@ -72,5 +86,11 @@ describe('PageCalculComponent', () => {
     calculData.coefficient = 1.25;
     const result = calculData.prixVenteNet;
     expect(result).toBe(125);
+  });
+
+  it('quand insertion prix achat brut 80 et coefficient multiplicateur 10 deverait retouner prix de vente net 800 ', () => {
+    component.calculForm.controls.prixachatbrut.setValue(80);
+    component.calculForm.controls.coefficient.setValue(10);
+    expect(component.model.prixVenteNet).toBe(800);
   });
 });
