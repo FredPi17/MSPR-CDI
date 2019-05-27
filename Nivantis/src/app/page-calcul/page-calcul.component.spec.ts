@@ -41,4 +41,23 @@ describe('PageCalculComponent', () => {
     component.calculForm.controls.prixachatnet.setValue(15);
     expect(component.model.tauxRemise).toBe(50);
   });
+
+  it('quand insertion prix achat brut 40 et taux de remise 50 deverait retouner prix achat net 20 ', () => {
+    component.calculForm.controls.prixachatbrut.setValue(40);
+    component.calculForm.controls.tauxremise.setValue(50);
+    expect(component.model.prixAchatNet).toBe(20);
+  });
+
+  it('quand insertion prix achat brut 80 et coefficient multiplicateur 10 deverait retouner prix de vente net 800 ', () => {
+    component.calculForm.controls.prixachatbrut.setValue(80);
+    component.calculForm.controls.coefficient.setValue(10);
+    expect(component.model.prixVenteNet).toBe(800);
+  });
+
+  it('quand insertion prix achat brut 20, prix achat net 18 et prix vente net 90 retouner coefficient multiplicateur 5', () => {
+    component.calculForm.controls.prixachatbrut.setValue(20);
+    component.calculForm.controls.prixachatnet.setValue(18);
+    component.calculForm.controls.prixventenet.setValue(90);
+    expect(component.model.coefficient).toBe(5);
+  });
 });
