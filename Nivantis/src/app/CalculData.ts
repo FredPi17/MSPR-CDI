@@ -1,9 +1,9 @@
 export class CalculData {
 
     constructor(
-        private _prixAchatBrut: number,
-        private _tauxRemise: number,
-        private _prixVenteNet: number,
+        private _prixAchatBrut?: number,
+        private _tauxRemise?: number,
+        private _prixVenteNet?: number,
     ) {
         this._prixAchatBrut = _prixAchatBrut;
         this._tauxRemise = _tauxRemise;
