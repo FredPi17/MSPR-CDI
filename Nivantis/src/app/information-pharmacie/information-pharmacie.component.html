@@ -1,6 +1,5 @@
 <h1> Informations Pharmacie :
   <select (change)="onSelect($event.target.value)">
-    <option value="null" ></option>
     <option *ngFor="let pharmacie of pharmacies"
             [value]="pharmacie.id">{{ pharmacie.nom }}</option>
   </select>
