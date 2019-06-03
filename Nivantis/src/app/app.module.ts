@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InformationPharmacieComponent } from './information-pharmacie/information-pharmacie.component';
 import { NavComponent } from './nav/nav.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, InformationPharmacieComponent, NavComponent],
