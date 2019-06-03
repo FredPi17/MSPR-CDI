@@ -14,8 +14,8 @@ export class InformationPharmacieComponent implements OnInit {
 
   constructor() { }
 
-  selectedPharmacie: Pharmacie;
-  selectedInformations: Informations;
+  selected: Informations[];
+
   pharmacies: Pharmacie[] = [];
   pharmacie1: Pharmacie;
   pharmacie2: Pharmacie;
@@ -75,11 +75,11 @@ ngOnInit() {
   this.medicaments.push(this.medicament1);
   this.medicaments.push(this.medicament2);
   this.medicaments.push(this.medicament3);
-  this.information1 = new Informations(1, 1, 10, 8, 'null');
-  this.information1 = new Informations(1, 2, 30, 20, 'null');
-  this.information1 = new Informations(2, 1, 5, 10, 'null');
-  this.information1 = new Informations(3, 2, 15, 6, 'null');
-  this.information1 = new Informations(4, 3, 13, 11, 'null');
+  this.information1 = new Informations(this.pharmacie1, this.medicament1, 10, 8, 'null');
+  this.information1 = new Informations(this.pharmacie1, this.medicament2, 30, 20, 'null');
+  this.information1 = new Informations(this.pharmacie2, this.medicament1, 5, 10, 'null');
+  this.information1 = new Informations(this.pharmacie3, this.medicament2, 15, 6, 'null');
+  this.information1 = new Informations(this.pharmacie4, this.medicament3, 13, 11, 'null');
   this.informations.push(this.information1);
   this.informations.push(this.information2);
   this.informations.push(this.information3);
@@ -91,12 +91,12 @@ getPharmacieByID(id: number) {
     return this.pharmacies.find(x => x.id === id);
   }
 
-  getInformationPharmacie(id: number){
-    return this.informations.find(x => x.idPharmacie === id);
+  getInformationPharmacie(id: number) {
+    console.log(this.informations);
+    return this.informations.filter(x => x.pharmacie.id === id);
   }
 
-onSelect(pharmacieID: number) {
-    this.selectedPharmacie = this.getPharmacieByID(Number(pharmacieID));
-    this.selectedInformations = this.getInformationPharmacie(Number(pharmacieID));
+onSelect(id: number) {
+    this.selected = this.getInformationPharmacie(Number(id));
   }
 }

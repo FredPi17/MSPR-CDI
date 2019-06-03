@@ -6,22 +6,31 @@
   </select>
 </h1>
 
-<div *ngIf="selectedPharmacie">
+<div *ngIf="selected">
   <br />
   <div>
     <label>Nom :
-      <input [(ngModel)]="selectedPharmacie.nom" placeholder="nom" />
+      <input [(ngModel)]="selected.pharmacie.nom" placeholder="nom" />
     </label>
     <br />
     <label>Adresse :
-      <input [(ngModel)]="selectedPharmacie.adresse" placeholder="adresse" />
+      <input [(ngModel)]="selected.pharmacie.adresse" placeholder="adresse" />
     </label>
     <br />
     <label>Personnel :
-      <input [(ngModel)]="selectedPharmacie.nbPersonnel" placeholder="personnel" />
+      <input [(ngModel)]="selected.pharmacie.nbPersonnel" placeholder="personnel" />
     </label>
-    <label>Besoin :
-      <input [(ngModel)]="selectedInformations.besoin" />
-    </label>
+    <hr />
+    <div *ngFor="let select of selected">
+      <label>Besoin :
+        <input [(ngModel)]="select.besoin" />
+      </label>
+      <label>Vente :
+        <input [(ngModel)]="select.ventes" />
+      </label>
+      <label>Date de formation :
+        <input [(ngModel)]="select.derniereFormation" />
+      </label>
+    </div>
   </div>
 </div>
