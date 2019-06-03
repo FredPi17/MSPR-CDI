@@ -60,7 +60,7 @@ ngOnInit() {
   this.pharmacie4 = new Pharmacie(
       4,
       'Champolion',
-      '4 rue Chapmolion',
+      '4 rue Champolion',
       1.234,
       8.45,
       12
@@ -76,10 +76,10 @@ ngOnInit() {
   this.medicaments.push(this.medicament2);
   this.medicaments.push(this.medicament3);
   this.information1 = new Informations(this.pharmacie1, this.medicament1, 10, 8, 'null');
-  this.information1 = new Informations(this.pharmacie1, this.medicament2, 30, 20, 'null');
-  this.information1 = new Informations(this.pharmacie2, this.medicament1, 5, 10, 'null');
-  this.information1 = new Informations(this.pharmacie3, this.medicament2, 15, 6, 'null');
-  this.information1 = new Informations(this.pharmacie4, this.medicament3, 13, 11, 'null');
+  this.information2 = new Informations(this.pharmacie1, this.medicament2, 30, 20, 'null');
+  this.information3 = new Informations(this.pharmacie2, this.medicament1, 5, 10, 'null');
+  this.information4 = new Informations(this.pharmacie3, this.medicament2, 15, 6, 'null');
+  this.information5 = new Informations(this.pharmacie4, this.medicament3, 13, 11, 'null');
   this.informations.push(this.information1);
   this.informations.push(this.information2);
   this.informations.push(this.information3);
@@ -87,12 +87,11 @@ ngOnInit() {
   this.informations.push(this.information5);
 }
 
-getPharmacieByID(id: number) {
-    return this.pharmacies.find(x => x.id === id);
+  onSave(){
+    console.log('todo save function');
   }
 
   getInformationPharmacie(id: number) {
-    console.log(this.informations);
     return this.informations.filter(x => x.pharmacie.id === id);
   }
 

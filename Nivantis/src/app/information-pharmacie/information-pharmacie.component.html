@@ -10,15 +10,15 @@
   <br />
   <div>
     <label>Nom :
-      <input [(ngModel)]="selected.pharmacie.nom" placeholder="nom" />
+      <input [(ngModel)]="selected[0].pharmacie.nom" placeholder="nom" />
     </label>
     <br />
     <label>Adresse :
-      <input [(ngModel)]="selected.pharmacie.adresse" placeholder="adresse" />
+      <input [(ngModel)]="selected[0].pharmacie.adresse" placeholder="adresse" />
     </label>
     <br />
     <label>Personnel :
-      <input [(ngModel)]="selected.pharmacie.nbPersonnel" placeholder="personnel" />
+      <input [(ngModel)]="selected[0].pharmacie.nbPersonnel" placeholder="personnel" />
     </label>
     <hr />
     <div *ngFor="let select of selected">
@@ -32,5 +32,6 @@
         <input [(ngModel)]="select.derniereFormation" />
       </label>
     </div>
+    <button type="submit" (click)="onSave()">Sauvegarder</button>
   </div>
 </div>
