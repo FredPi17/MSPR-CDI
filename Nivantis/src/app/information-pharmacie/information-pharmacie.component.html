@@ -1,0 +1,37 @@
+<h1> Informations Pharmacie :
+  <select (change)="onSelect($event.target.value)">
+    <option value="null" ></option>
+    <option *ngFor="let pharmacie of pharmacies"
+            [value]="pharmacie.id">{{ pharmacie.nom }}</option>
+  </select>
+</h1>
+
+<div *ngIf="selected">
+  <br />
+  <div>
+    <label>Nom :
+      <input [(ngModel)]="selected[0].pharmacie.nom" placeholder="nom" />
+    </label>
+    <br />
+    <label>Adresse :
+      <input [(ngModel)]="selected[0].pharmacie.adresse" placeholder="adresse" />
+    </label>
+    <br />
+    <label>Personnel :
+      <input [(ngModel)]="selected[0].pharmacie.nbPersonnel" placeholder="personnel" />
+    </label>
+    <hr />
+    <div *ngFor="let select of selected">
+      <label>Besoin :
+        <input [(ngModel)]="select.besoin" />
+      </label>
+      <label>Vente :
+        <input [(ngModel)]="select.ventes" />
+      </label>
+      <label>Date de formation :
+        <input [(ngModel)]="select.derniereFormation" />
+      </label>
+    </div>
+    <button type="submit" (click)="onSave()">Sauvegarder</button>
+  </div>
+</div>

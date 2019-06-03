@@ -1,34 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import { CalculData } from '../CalculData';
+import {CalculData} from '../CalculData';
 
 @Component({
-  selector: 'app-page-calcul',
-  templateUrl: './page-calcul.component.html',
-  styleUrls: ['./page-calcul.component.scss'],
+    selector: 'app-page-calcul',
+    templateUrl: './page-calcul.component.html',
+    styleUrls: ['./page-calcul.component.scss'],
 })
 
 export class PageCalculComponent implements OnInit {
 
-  calculForm: FormGroup;
-  model: CalculData;
+    calculForm: FormGroup;
+    model: CalculData;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.model = new CalculData(0,0,0);
-  }
+    constructor(private formBuilder: FormBuilder) {
+        this.model = new CalculData(0, 0, 0);
+    }
 
-  ngOnInit() {
-    this.calculForm = this.formBuilder.group({
-      prixachatnet: new FormControl('', {updateOn : 'blur'}),
-      prixachatbrut: new FormControl('', {updateOn : 'blur'}),
-      prixventenet: new FormControl('', {updateOn : 'blur'}),
-      tauxremise: new FormControl('', {updateOn : 'blur'}),
-      coefficient: new FormControl('', {updateOn : 'blur'})
-    });
+    ngOnInit() {
+        this.calculForm = this.formBuilder.group({
+            prixachatnet: new FormControl('', {updateOn: 'blur'}),
+            prixachatbrut: new FormControl('', {updateOn: 'blur'}),
+            prixventenet: new FormControl('', {updateOn: 'blur'}),
+            tauxremise: new FormControl('', {updateOn: 'blur'}),
+            coefficient: new FormControl('', {updateOn: 'blur'})
+        });
 
-  }
+    }
 
-  get f() {return this.calculForm.controls; }
+    get f() {
+        return this.calculForm.controls;
+    }
 }
 
 
