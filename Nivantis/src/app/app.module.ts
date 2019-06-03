@@ -11,9 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { InformationPharmacieComponent } from './information-pharmacie/information-pharmacie.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PageCalculComponent} from './page-calcul/page-calcul.component';
 
 @NgModule({
-  declarations: [AppComponent, InformationPharmacieComponent, NavComponent],
+  declarations: [AppComponent, InformationPharmacieComponent, NavComponent, PageCalculComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [
