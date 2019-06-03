@@ -1,23 +1,28 @@
 <h1> Optimisation des achats </h1>
 <form [formGroup]="calculForm">
-  <div class="form-group row">
-    <label class="col-4">Prix d'achat brut:</label>
-    <input class="offset-2 col-4" [(ngModel)]=model.prixAchatBrut ng-model-options="{ getterSetter: true }" type="number" formControlName="prixachatbrut"/>
-  </div>
-  <div class="form-group row">
-    <label class="col-4">Taux de remise:</label>
-    <input class="offset-2 col-4" [(ngModel)]=model.tauxRemise ng-model-options="{ getterSetter: true }" type="number" formControlName="tauxremise"/>
-  </div>
-  <div class="form-group row">
-    <label class="col-4">Prix d'achat net:</label>
-    <input class="offset-2 col-4" [(ngModel)]=model.prixAchatNet ng-model-options="{ getterSetter: true }" type="number" formControlName="prixachatnet"/>
-  </div>
-  <div class="form-group row">
-    <label class="col-4">Prix de vente net:</label>
-    <input class="offset-2 col-4" [(ngModel)]=model.prixVenteNet ng-model-options="{ getterSetter: true }" type="number" formControlName="prixventenet"/>
-  </div>
-  <div class="form-group row">
-    <label class="col-4">Coefficient multiplicateur:</label>
-    <input class="offset-2 col-4" [(ngModel)]=model.coefficient ng-model-options="{ getterSetter: true }" type="number" formControlName="coefficient"/>
-  </div>
+    <div class="form-group row">
+        <label class="col-4">Prix d'achat brut:</label>
+        <input class="offset-2 col-4" [(ngModel)]=model.prixAchatBrut ng-model-options="{ getterSetter: true }"
+               type="number" formControlName="prixachatbrut"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-4">Taux de remise:</label>
+        <input class="offset-2 col-4" [(ngModel)]=model.tauxRemise ng-model-options="{ getterSetter: true }"
+               type="number" formControlName="tauxremise"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-4">Prix d'achat net:</label>
+        <input class="offset-2 col-4" [(ngModel)]=model.prixAchatNet ng-model-options="{ getterSetter: true }"
+               type="number" formControlName="prixachatnet"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-4">Prix de vente net:</label>
+        <input class="offset-2 col-4" [(ngModel)]=model.prixVenteNet ng-model-options="{ getterSetter: true }"
+               type="number" formControlName="prixventenet"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-4">Coefficient multiplicateur:</label>
+        <input class="offset-2 col-4" [(ngModel)]=model.coefficient ng-model-options="{ getterSetter: true }"
+               type="number" formControlName="coefficient"/>
+    </div>
 </form>

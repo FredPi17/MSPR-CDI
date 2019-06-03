@@ -20,6 +20,6 @@ import {PageCalculComponent} from "../page-calcul/page-calcul.component";
     ]),
     ReactiveFormsModule
   ],
-    declarations: [HomePage, PageCalculComponent]
+  declarations: [HomePage, PageCalculComponent]
 })
 export class HomePageModule {}
