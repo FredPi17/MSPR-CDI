@@ -7,30 +7,34 @@
 
 <div *ngIf="selected">
   <br />
+  <hr>
   <div>
     <label>Nom :
-      <input [(ngModel)]="selected[0].pharmacie.nom" placeholder="nom" />
+      {{ selected[0].pharmacie.nom }}
     </label>
     <br />
     <label>Adresse :
-      <input [(ngModel)]="selected[0].pharmacie.adresse" placeholder="adresse" />
+      {{ selected[0].pharmacie.adresse }}
     </label>
     <br />
     <label>Personnel :
-      <input [(ngModel)]="selected[0].pharmacie.nbPersonnel" placeholder="personnel" />
+      {{ selected[0].pharmacie.nbPersonnel }}
     </label>
     <hr />
     <div *ngFor="let select of selected">
       <label>Besoin :
-        <input [(ngModel)]="select.besoin" />
+        {{ select.besoin }}
       </label>
+      <br/>
       <label>Vente :
-        <input [(ngModel)]="select.ventes" />
+        {{ select.ventes }}
       </label>
-      <label>Date de formation :
-        <input [(ngModel)]="select.derniereFormation" />
+      <br/>
+      <label>Date de dernière formation :
+        {{ select.derniereFormation }}
       </label>
+      <br />
+      <br />
     </div>
-    <button type="submit" (click)="onSave()">Sauvegarder</button>
   </div>
 </div>

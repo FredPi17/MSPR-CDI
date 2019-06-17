@@ -1,8 +1,8 @@
-import {Component, Directive, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
 import { Pharmacie} from './pharmacie';
 import { Medicament} from './medicament';
 import { Informations} from './informations';
+import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-information-pharmacie',
@@ -10,7 +10,6 @@ import { Informations} from './informations';
   styleUrls: ['./information-pharmacie.component.scss'],
 })
 export class InformationPharmacieComponent implements OnInit {
-
 
   constructor() { }
 
@@ -32,20 +31,32 @@ export class InformationPharmacieComponent implements OnInit {
   information4: Informations;
   information5: Informations;
 
+  currentLat: string;
+  currentLong: string;
+
   ngOnInit() {
-    const lat = 8.45;
-    const lon = 1.234;
+    this.findMe();
+  }
+  setInformation(){
     this.pharmacie1 = new Pharmacie( 1, 'St Bruno', '1 rue St Bruno', 2.34, 4.46, 25);
-    this.pharmacie2 = new Pharmacie(2, 'Des Arts', '2 rue Des Arts', 3.345, 5.677,2);
+    this.pharmacie2 = new Pharmacie(2, 'Des Arts', '2 rue Des Arts', 4.345, 45.677,2);
     this.pharmacie3 = new Pharmacie(3, 'Victor Hugo', '3 place Victor hugo', 7.34, 9.34534, 12);
-    this.pharmacie4 = new Pharmacie(4, 'Champolion', '4 rue Champolion', 1.234, 8.45, 12);
+    this.pharmacie4 = new Pharmacie(4, 'Champolion', '4 rue Champolion', 45.234, 4.45, 12);
     this.pharmacies.push(this.pharmacie1);
     this.pharmacies.push(this.pharmacie2);
     this.pharmacies.push(this.pharmacie3);
     this.pharmacies.push(this.pharmacie4);
-    this.pharmacies.sort((a, b) => {
-      return a.getDistance(Number(lat), Number(lon)) - b.getDistance(Number(lat), Number(lon));
-    });
+    const lat = this.currentLat;
+    const lon = this.currentLong;
+    if(lat != null && lon != null){
+      this.pharmacies.sort((a, b) => {
+        return a.getDistance(Number(lat), Number(lon)) - b.getDistance(Number(lat), Number(lon));
+      });
+      console.log('location found');
+    } else {
+      this.pharmacies.sort();
+      console.log('location not found');
+    }
     this.medicament1 = new Medicament(1, 'Aspirine', 1.50);
     this.medicament2 = new Medicament(2, 'Doliprane 1000', 5.75);
     this.medicament3 = new Medicament(3, 'Imeth', 2.00);
@@ -62,8 +73,25 @@ export class InformationPharmacieComponent implements OnInit {
     this.informations.push(this.information3);
     this.informations.push(this.information4);
     this.informations.push(this.information5);
+
+    this.onSelect(this.pharmacies[0].id);
   }
 
+  findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.currentLat = position.coords.latitude.toString();
+        this.currentLong = position.coords.longitude.toString();
+        if (this.currentLong != null && this.currentLat != null) {
+          console.log('latitude: ' + this.currentLat);
+          console.log('longitude: ' + this.currentLong);
+          this.setInformation();
+        }
+      });
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
+  }
   getInformationPharmacie(id: number) {
     return this.informations.filter(x => x.pharmacie.id === id);
   }
