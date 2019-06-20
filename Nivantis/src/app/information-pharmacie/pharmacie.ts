@@ -1,16 +1,22 @@
+import {cpus} from "os";
+
 export class Pharmacie {
 
     private _id?: number;
     private _nom?: string;
     private _adresse?: string;
+    private _CP?: number;
+    private _ville?: string;
     private _longitude?: number;
     private _latitude?: number;
     private _nbPersonnel?: number;
 
-    constructor(id, nom, adresse, longitude, latitude, nbPersonnel) {
+    constructor(id, nom, adresse, cp, ville, longitude, latitude, nbPersonnel) {
         this._id = id;
         this._nom = nom;
         this._adresse = adresse;
+        this._CP = cp;
+        this._ville = ville;
         this._latitude = latitude;
         this._longitude = longitude;
         this._nbPersonnel = nbPersonnel;
@@ -38,6 +44,22 @@ export class Pharmacie {
 
     set adresse(value) {
         this._adresse = value;
+    }
+
+    get CP(): number {
+        return this._CP;
+    }
+
+    set CP(value: number) {
+        this._CP = value;
+    }
+
+    get ville(): string {
+        return this._ville;
+    }
+
+    set ville(value: string) {
+        this._ville = value;
     }
 
     get longitude(): number {

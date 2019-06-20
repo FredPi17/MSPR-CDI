@@ -33,7 +33,9 @@ describe('InformationPharmacieComponent', () => {
     const latitude = 45.189339;
     const longitude =  5.724192;
     const pharmacie = component.getPharmacie(latitude, longitude, this.listPharmacie);
-    expect(pharmacie.adresse.toUpperCase).toBe('9 PLACE VICTOR HUGO, 38000 GRENOBLE');
+    expect(pharmacie.adresse.toUpperCase).toBe('9 PLACE VICTOR HUGO');
+    expect(pharmacie.CP.toUpperCase).toBe(38000);
+    expect(pharmacie.ville.toUpperCase).toBe('GRENOBLE');
     expect(pharmacie.nom.toUpperCase).toBe('PHARMACIE VICTOR HUGO');
   });
 
