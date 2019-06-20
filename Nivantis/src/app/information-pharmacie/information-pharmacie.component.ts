@@ -90,6 +90,7 @@ export class InformationPharmacieComponent implements OnInit {
       });
     } else {
       alert('Geolocation is not supported by this browser.');
+      this.setInformation();
     }
   }
   getInformationPharmacie(id: number) {
