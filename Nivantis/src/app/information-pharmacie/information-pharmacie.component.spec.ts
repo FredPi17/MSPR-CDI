@@ -1,6 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import { InformationPharmacieComponent } from './information-pharmacie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -8,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 describe('InformationPharmacieComponent', () => {
   let component: InformationPharmacieComponent;
   let fixture: ComponentFixture<InformationPharmacieComponent>;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,6 +28,7 @@ describe('InformationPharmacieComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
   it('devrait retourner  pharmacie victor hugo', () => {
     const latitude = 45.189339;
     const longitude =  5.724192;
@@ -46,5 +47,21 @@ describe('InformationPharmacieComponent', () => {
     const informations = component.getInformationPharmacie(1);
     const ventes =informations.getVentes();
     expect(ventes).not.toBe(null);
+  });
+
+  it('Doit retourner des coordonnées GPS', () => {
+    Geolocation.getCurrentPosition().then((resp) => {
+      this.coords = resp.coords;
+      expect(this.coords).toBeDefined();
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+  });
+
+  it('Doit retourner la distance 126.194 mètres avec la latitude 45.189339 et la longitude 5.724192', () => {
+     const actualLatitude = 45.189339;
+     const actualLongitude = 5.724192;
+     const pharmacie = new Pharmacie(1, 'PHARMACIE VICTOR HUGO', '9 PLACE VICTOR HUGO, 38000 GRENOBLE', 5.725564, 45.188749, 10);
+     expect(pharmacie.getDistance(actualLatitude, actualLongitude)).toBe(126.194);
   });
 });
