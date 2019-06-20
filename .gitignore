@@ -2,6 +2,7 @@ Nivantis/.idea
 .idea/
 Nivantis/release-builds
 
+
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
@@ -40,3 +41,5 @@ UserInterfaceState.xcuserstate
 
 Nivantis/node_modules/
 Nivantis/www/
+Nivantis/package-lock.json
+

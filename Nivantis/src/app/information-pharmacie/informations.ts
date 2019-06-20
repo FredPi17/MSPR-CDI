@@ -1,5 +1,5 @@
-import {Pharmacie} from "./pharmacie";
-import {Medicament} from "./medicament";
+import {Pharmacie} from './pharmacie';
+import {Medicament} from './medicament';
 
 export class Informations {
     public pharmacie: Pharmacie;
@@ -8,7 +8,7 @@ export class Informations {
     public ventes: number;
     public derniereFormation: string;
 
-    constructor(pharmacie, medicament, besoin, ventes, derniereFormation){
+    constructor(pharmacie, medicament, besoin, ventes, derniereFormation) {
         this.pharmacie = pharmacie;
         this.medicament = medicament;
         this.besoin = besoin;
