@@ -1,5 +1,3 @@
-import {cpus} from "os";
-
 export class Pharmacie {
 
     private _id?: number;

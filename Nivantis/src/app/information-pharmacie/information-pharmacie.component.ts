@@ -1,5 +1,4 @@
 import {Component, Directive, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Pharmacie} from './pharmacie';
 import {Medicament} from './medicament';
 import {Informations} from './informations';

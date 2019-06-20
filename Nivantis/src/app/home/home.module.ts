@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
 import { HomePage } from './home.page';
-import {PageCalculComponent} from "../page-calcul/page-calcul.component";
 
 @NgModule({
   imports: [
@@ -20,6 +18,6 @@ import {PageCalculComponent} from "../page-calcul/page-calcul.component";
     ]),
     ReactiveFormsModule
   ],
-  declarations: [HomePage, PageCalculComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
