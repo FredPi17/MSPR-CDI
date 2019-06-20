@@ -6,7 +6,7 @@ export class Pharmacie {
     public latitude: number;
     public nbPersonnel: number;
 
-    constructor(id, nom, adresse, longitude, latitude, nbPersonnel){
+    constructor(id, nom, adresse, longitude, latitude, nbPersonnel) {
         this.id = id;
         this.nom = nom;
         this.adresse = adresse;
