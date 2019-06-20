@@ -87,7 +87,7 @@ ngOnInit() {
   this.informations.push(this.information5);
 }
 
-  onSave(){
+  onSave() {
     console.log('todo save function');
   }
 
