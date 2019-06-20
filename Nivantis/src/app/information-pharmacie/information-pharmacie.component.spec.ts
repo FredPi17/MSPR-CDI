@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, Injectable} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {InformationPharmacieComponent} from './information-pharmacie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -32,16 +32,16 @@ describe('InformationPharmacieComponent', () => {
   it('devrait retourner  pharmacie victor hugo', () => {
     const latitude = 45.189339;
     const longitude =  5.724192;
-    const pharmacie = component.getPharmacie(latitude, longitude, this.listPharmacie);
+    const pharmacie = component.getInformationPharmacie();
     expect(pharmacie.adresse.toUpperCase).toBe('9 PLACE VICTOR HUGO');
     expect(pharmacie.CP.toUpperCase).toBe(38000);
     expect(pharmacie.ville.toUpperCase).toBe('GRENOBLE');
     expect(pharmacie.nom.toUpperCase).toBe('PHARMACIE VICTOR HUGO');
   });
 
-  it('devrais retourner les medicaments de une pharmacie',() => {
+  it('devrais retourner les medicaments de une pharmacie', () => {
     const informations = component.getInformationPharmacie(1);
-    const medicaments =informations.getMedicaments();
+    const medicaments = informations.getMedicaments();
     expect(medicaments).not.toBe(null);
   });
 
