@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, Injectable} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {InformationPharmacieComponent} from './information-pharmacie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -38,17 +38,11 @@ describe('InformationPharmacieComponent', () => {
     expect(pharmacie.nom.toUpperCase).toBe('PHARMACIE VICTOR HUGO');
   });
 
-  it('devrais retourner les medicaments d\'une pharmacie', () => {
+  it('devrais retourner un objet information', () => {
     const informations = component.getInformationPharmacie(1);
-    const medicaments = informations.filter()
-    expect(medicaments).not.toBe(null);
+    expect(informations).not.toBe(null);
   });
 
-  it('devrais retourner les ventes de une pharmacie', () => {
-    const informations = component.getInformationPharmacie(1);
-    const ventes = informations.getVentes();
-    expect(ventes).not.toBe(null);
-  });
 
   it('Doit retourner la distance 126.194 mètres avec la latitude 45.189339 et la longitude 5.724192 pour la Pharmacie Victor Hugo', () => {
      const actualLatitude = 45.189339;

@@ -1,6 +1,5 @@
 <h1> Informations Pharmacie :
   <select (change)="onSelect($event.target.value)">
-    <option value="null" ></option>
     <option *ngFor="let pharmacie of pharmacies"
             [value]="pharmacie.id">{{ pharmacie.nom }}</option>
   </select>
@@ -8,30 +7,50 @@
 
 <div *ngIf="selected">
   <br />
+  <hr>
   <div>
     <label>Nom :
-      <input [(ngModel)]="selected[0].pharmacie.nom" placeholder="nom" />
+      {{ selected[0].pharmacie.nom }}
     </label>
     <br />
     <label>Adresse :
-      <input [(ngModel)]="selected[0].pharmacie.adresse" placeholder="adresse" />
+      {{ selected[0].pharmacie.adresse }}
+    </label>
+    <br />
+    <label>Code Postal :
+      {{ selected[0].pharmacie.CP }}
+    </label>
+    <br />
+    <label>Ville :
+      {{ selected[0].pharmacie.ville }}
     </label>
     <br />
     <label>Personnel :
-      <input [(ngModel)]="selected[0].pharmacie.nbPersonnel" placeholder="personnel" />
+      {{ selected[0].pharmacie.nbPersonnel }}
     </label>
     <hr />
     <div *ngFor="let select of selected">
+      <label>Medicament :
+        {{ select.medicament.nom }}
+      </label>
+      <br/>
+      <label>Prix :
+        {{ select.medicament.prix }} €
+      </label>
+      <br/>
       <label>Besoin :
-        <input [(ngModel)]="select.besoin" />
+        {{ select.besoin }}
       </label>
+      <br/>
       <label>Vente :
-        <input [(ngModel)]="select.ventes" />
+        {{ select.ventes }}
       </label>
-      <label>Date de formation :
-        <input [(ngModel)]="select.derniereFormation" />
+      <br/>
+      <label>Date de dernière formation :
+        {{ select.derniereFormation }}
       </label>
+      <br />
+      <br />
     </div>
-    <button type="submit" (click)="onSave()">Sauvegarder</button>
   </div>
 </div>

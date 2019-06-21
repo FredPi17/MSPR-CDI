@@ -1,5 +1,3 @@
-import {cpus} from "os";
-
 export class Pharmacie {
 
     private _id?: number;
@@ -84,5 +82,14 @@ export class Pharmacie {
 
     set nbPersonnel(value: number) {
         this._nbPersonnel = value;
+    }
+
+    getDistance(latitudeAcutelle: number, longitudeActuelle: number): number {
+        const p = Math.PI / 180;
+        const c = Math.cos;
+        const a = 0.5 - c((this.latitude - latitudeAcutelle) * p) / 2 +
+            c(latitudeAcutelle * p) * c(this.latitude * p) *
+            (1 - c((this.longitude - longitudeActuelle) * p)) / 2;
+        return (12742 * Math.asin(Math.sqrt(a))) * 1000;
     }
 }

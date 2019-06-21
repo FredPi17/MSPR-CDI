@@ -12,15 +12,28 @@ import { InformationPharmacieComponent } from './information-pharmacie/informati
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PageCalculComponent} from './page-calcul/page-calcul.component';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+
+// @ts-ignore
 @NgModule({
-  declarations: [AppComponent, InformationPharmacieComponent, NavComponent, PageCalculComponent],
+  declarations: [
+    AppComponent,
+    InformationPharmacieComponent,
+    NavComponent,
+    PageCalculComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
   providers: [
+      { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    SplashScreen, Geolocation
   ],
   bootstrap: [AppComponent]
 })
