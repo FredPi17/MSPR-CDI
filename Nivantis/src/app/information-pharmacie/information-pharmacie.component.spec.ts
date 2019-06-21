@@ -40,15 +40,9 @@ describe('InformationPharmacieComponent', () => {
 
   it('devrais retourner les medicaments d\'une pharmacie', () => {
     const informations = component.getInformationPharmacie(1);
-    const medicaments = informations.getMedicaments();
-    expect(medicaments).not.toBe(null);
+    expect(informations).not.toBe(null);
   });
 
-  it('devrais retourner les ventes de une pharmacie', () => {
-    const informations = component.getInformationPharmacie(1);
-    const ventes = informations.getVentes();
-    expect(ventes).not.toBe(null);
-  });
 
   it('Doit retourner la distance 126.194 mètres avec la latitude 45.189339 et la longitude 5.724192 pour la Pharmacie Victor Hugo', () => {
      const actualLatitude = 45.189339;
