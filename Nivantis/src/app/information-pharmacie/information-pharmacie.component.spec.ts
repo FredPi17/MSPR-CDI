@@ -38,7 +38,7 @@ describe('InformationPharmacieComponent', () => {
     expect(pharmacie.nom.toUpperCase).toBe('PHARMACIE VICTOR HUGO');
   });
 
-  it('devrais retourner les medicaments d\'une pharmacie', () => {
+  it('devrais retourner un objet pharmacie', () => {
     const informations = component.getInformationPharmacie(1);
     expect(informations).not.toBe(null);
   });
