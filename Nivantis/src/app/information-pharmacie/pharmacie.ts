@@ -84,7 +84,7 @@ export class Pharmacie {
         this._nbPersonnel = value;
     }
 
-    getDistance(latitudeAcutelle: number, longitudeActuelle: number) : number {
+    getDistance(latitudeAcutelle: number, longitudeActuelle: number): number {
         const p = Math.PI / 180;
         const c = Math.cos;
         const a = 0.5 - c((this.latitude - latitudeAcutelle) * p) / 2 +

@@ -38,24 +38,13 @@ export class InformationPharmacieComponent implements OnInit {
   }
   setInformation() {
     this.pharmacie1 = new Pharmacie( 1, 'St Bruno', '1 rue St Bruno', 38000, 'Grenoble', 2.34, 4.46, 25);
-    this.pharmacie2 = new Pharmacie(2, 'Des Arts', '2 rue Des Arts', 38000, 'Grenoble', 4.345, 45.677,2);
+    this.pharmacie2 = new Pharmacie(2, 'Des Arts', '2 rue Des Arts', 38000, 'Grenoble', 4.345, 45.677, 2);
     this.pharmacie3 = new Pharmacie(3, 'Victor Hugo', '3 place Victor hugo', 38000, 'Grenoble', 7.34, 9.34534, 12);
     this.pharmacie4 = new Pharmacie(4, 'Champolion', '4 rue Champolion', 38000, 'Grenoble', 45.234, 4.45, 12);
     this.pharmacies.push(this.pharmacie1);
     this.pharmacies.push(this.pharmacie2);
     this.pharmacies.push(this.pharmacie3);
     this.pharmacies.push(this.pharmacie4);
-    const lat = this.currentLat;
-    const lon = this.currentLong;
-    if (lat != null && lon != null) {
-      this.pharmacies.sort((a, b) => {
-        return a.getDistance(Number(lat), Number(lon)) - b.getDistance(Number(lat), Number(lon));
-      });
-      console.log('location found');
-    } else {
-      this.pharmacies.sort();
-      console.log('location not found');
-    }
     this.medicament1 = new Medicament(1, 'Aspirine', 1.50);
     this.medicament2 = new Medicament(2, 'Doliprane 1000', 5.75);
     this.medicament3 = new Medicament(3, 'Imeth', 2.00);
@@ -96,5 +85,13 @@ export class InformationPharmacieComponent implements OnInit {
 
   onSelect(id: number) {
       this.selected = this.getInformationPharmacie(Number(id));
+  }
+
+  sortPharmaciesByDistance(lat: string, lon: string): Pharmacie {
+      let listPharmacie: any[];
+      listPharmacie =  this.pharmacies.sort((a, b) => {
+          return a.getDistance(Number(lat), Number(lon)) - b.getDistance(Number(lat), Number(lon));
+      });
+      return listPharmacie[0];
   }
 }
