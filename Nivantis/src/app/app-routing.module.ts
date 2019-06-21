@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'informationPharmacies', component: InformationPharmacieComponent},
-  { path: 'pageCalcul', component: PageCalculComponent}
+  { path: 'pageCalcul', component: PageCalculComponent},  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+
 ];
 
 @NgModule({
