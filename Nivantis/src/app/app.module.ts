@@ -12,7 +12,6 @@ import { InformationPharmacieComponent } from './information-pharmacie/informati
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PageCalculComponent} from './page-calcul/page-calcul.component';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 // @ts-ignore
@@ -33,7 +32,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
   providers: [
       { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     StatusBar,
-    SplashScreen, Geolocation
+    SplashScreen
   ],
   bootstrap: [AppComponent]
 })
