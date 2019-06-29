@@ -13,6 +13,7 @@ import { InformationPharmacieComponent } from './information-pharmacie/informati
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PageCalculComponent} from './page-calcul/page-calcul.component';
+import {AdminFormulaireComponent} from './admin-formulaire/admin-formulaire.component';
 
 
 // @ts-ignore
@@ -21,7 +22,9 @@ import { PageCalculComponent} from './page-calcul/page-calcul.component';
     AppComponent,
     InformationPharmacieComponent,
     NavComponent,
-    PageCalculComponent],
+    PageCalculComponent,
+    AdminFormulaireComponent
+  ],
   entryComponents: [],
   imports: [
     HttpClientModule,

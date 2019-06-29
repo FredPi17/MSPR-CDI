@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './admin-formulaire.component.html',
   styleUrls: ['./admin-formulaire.component.scss'],
 })
+
 export class AdminFormulaireComponent implements OnInit {
 
   constructor() { }
