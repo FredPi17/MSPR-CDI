@@ -5,37 +5,38 @@
   </select>
 </h1>
 
+
 <div *ngIf="selected">
   <br />
   <hr>
   <div>
     <label>Nom :
-      {{ selected[0].pharmacie.nom }}
+        {{ pharmacie[0].nom }}
     </label>
     <br />
     <label>Adresse :
-      {{ selected[0].pharmacie.adresse }}
+        {{ pharmacie[0].adresse }}
     </label>
     <br />
     <label>Code Postal :
-      {{ selected[0].pharmacie.CP }}
+        {{ pharmacie[0].CP }}
     </label>
     <br />
     <label>Ville :
-      {{ selected[0].pharmacie.ville }}
+        {{ pharmacie[0].ville }}
     </label>
     <br />
     <label>Personnel :
-      {{ selected[0].pharmacie.nbPersonnel }}
+        {{ pharmacie[0].nbPersonnel }}
     </label>
     <hr />
     <div *ngFor="let select of selected">
       <label>Medicament :
-        {{ select.medicament.nom }}
+          {{ select.nom }}
       </label>
       <br/>
       <label>Prix :
-        {{ select.medicament.prix }} €
+          {{ select.prix }} €
       </label>
       <br/>
       <label>Besoin :

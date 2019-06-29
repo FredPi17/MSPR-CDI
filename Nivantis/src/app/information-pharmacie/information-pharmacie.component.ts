@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Pharmacie } from './pharmacie';
-import { Medicament } from './medicament';
-import { Informations } from './informations';
+import {Component, OnInit} from '@angular/core';
+import {Pharmacie} from './pharmacie';
+import {Informations} from './informations';
+import {ServiceService} from '../service/service.service';
 
 @Component({
     selector: 'app-information-pharmacie',
@@ -10,88 +10,71 @@ import { Informations } from './informations';
 })
 export class InformationPharmacieComponent implements OnInit {
 
-  constructor() { }
+
+    constructor(protected appService: ServiceService) {
+    }
 
     selected: Informations[];
-
     pharmacies: Pharmacie[] = [];
-    pharmacie1: Pharmacie;
-    pharmacie2: Pharmacie;
-    pharmacie3: Pharmacie;
-    pharmacie4: Pharmacie;
-    medicaments: Medicament[] = [];
-    medicament1: Medicament;
-    medicament2: Medicament;
-    medicament3: Medicament;
     informations: Informations[] = [];
-    information1: Informations;
-    information2: Informations;
-    information3: Informations;
-    information4: Informations;
-    information5: Informations;
+    pharmacie: Pharmacie[];
+    currentLat: string;
+    currentLong: string;
 
-  currentLat: string;
-  currentLong: string;
-
-  ngOnInit() {
-    this.findMe();
-  }
-  setInformation() {
-    this.pharmacie1 = new Pharmacie( 1, 'St Bruno', '1 rue St Bruno', 38000, 'Grenoble', 2.34, 4.46, 25);
-    this.pharmacie2 = new Pharmacie(2, 'Des Arts', '2 rue Des Arts', 38000, 'Grenoble', 4.345, 45.677, 2);
-    this.pharmacie3 = new Pharmacie(3, 'Victor Hugo', '3 place Victor hugo', 38000, 'Grenoble', 7.34, 9.34534, 12);
-    this.pharmacie4 = new Pharmacie(4, 'Champolion', '4 rue Champolion', 38000, 'Grenoble', 45.234, 4.45, 12);
-    this.pharmacies.push(this.pharmacie1);
-    this.pharmacies.push(this.pharmacie2);
-    this.pharmacies.push(this.pharmacie3);
-    this.pharmacies.push(this.pharmacie4);
-    this.medicament1 = new Medicament(1, 'Aspirine', 1.50);
-    this.medicament2 = new Medicament(2, 'Doliprane 1000', 5.75);
-    this.medicament3 = new Medicament(3, 'Imeth', 2.00);
-    this.medicaments.push(this.medicament1);
-    this.medicaments.push(this.medicament2);
-    this.medicaments.push(this.medicament3);
-    this.information1 = new Informations(this.pharmacie1, this.medicament1, 10, 8, 'null');
-    this.information2 = new Informations(this.pharmacie1, this.medicament2, 30, 20, 'null');
-    this.information3 = new Informations(this.pharmacie2, this.medicament1, 5, 10, 'null');
-    this.information4 = new Informations(this.pharmacie3, this.medicament2, 15, 6, 'null');
-    this.information5 = new Informations(this.pharmacie4, this.medicament3, 13, 11, 'null');
-    this.informations.push(this.information1);
-    this.informations.push(this.information2);
-    this.informations.push(this.information3);
-    this.informations.push(this.information4);
-    this.informations.push(this.information5);
-
-    this.onSelect(this.pharmacies[0].id);
-  }
-
-  findMe() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.currentLat = position.coords.latitude.toString();
-        this.currentLong = position.coords.longitude.toString();
-        if (this.currentLong != null && this.currentLat != null) {
-          this.setInformation();
-        }
-      });
-    } else {
-      alert('Geolocation is not supported by this browser.');
-      this.setInformation();
+    ngOnInit() {
+        this.findMe();
     }
-  }
-  getInformationPharmacie(id: number) {
-    return this.informations.filter(x => x.pharmacie.id === id);
-  }
 
-  onSelect(id: number) {
-      this.selected = this.getInformationPharmacie(Number(id));
-  }
+    setInformation() {
+        this.appService.getAllPharmacies().toPromise()
+            .then(pharmacies => {
+                if (pharmacies !== []) {
+                    for (let i = 0; i < pharmacies.body.pharmaData.length; i++) {
+                        this.pharmacies.push(pharmacies.body.pharmaData[i]);
+                    }
+                    this.onSelect(this.pharmacies[0].id);
+                    console.log(this.pharmacies);
+                }
+            });
+    }
 
-  sortPharmaciesByDistance(lat: string, lon: string): Pharmacie {
-      let listPharmacie: any[];
-      listPharmacie =  this.pharmacies.sort((a, b) => {
-          return a.getDistance(Number(lat), Number(lon)) - b.getDistance(Number(lat), Number(lon));
-      });
-      return listPharmacie[0];
-  }
+    findMe() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                this.currentLat = position.coords.latitude.toString();
+                this.currentLong = position.coords.longitude.toString();
+                if (this.currentLong != null && this.currentLat != null) {
+                    this.setInformation();
+                }
+            });
+        } else {
+            alert('Geolocation is not supported by this browser.');
+            this.setInformation();
+        }
+    }
+
+    getInformationPharmacie(id: number): Informations[] {
+        this.pharmacie = this.pharmacies.filter(x => x.id === id);
+        this.appService.getInformationsFromPharmacie(id).toPromise()
+            .then(information => {
+                if (information !== []) {
+                    for (let i = 0; i < information.body.informations.length; i++) {
+                        this.informations.push(information.body.informations[i]);
+                    }
+                }
+            });
+        return this.informations;
+    }
+
+    onSelect(id: number) {
+        this.selected = this.getInformationPharmacie(Number(id));
+    }
+
+    sortPharmaciesByDistance(lat: string, lon: string): Pharmacie {
+        let listPharmacie: any[];
+        listPharmacie = this.pharmacies.sort((a, b) => {
+            return a.getDistance(Number(lat), Number(lon)) - b.getDistance(Number(lat), Number(lon));
+        });
+        return listPharmacie[0];
+    }
 }

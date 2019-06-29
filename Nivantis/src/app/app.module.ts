@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,7 +13,6 @@ import { InformationPharmacieComponent } from './information-pharmacie/informati
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PageCalculComponent} from './page-calcul/page-calcul.component';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 // @ts-ignore
@@ -24,6 +24,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     PageCalculComponent],
   entryComponents: [],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
@@ -33,7 +34,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
   providers: [
       { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     StatusBar,
-    SplashScreen, Geolocation
+    SplashScreen
   ],
   bootstrap: [AppComponent]
 })
