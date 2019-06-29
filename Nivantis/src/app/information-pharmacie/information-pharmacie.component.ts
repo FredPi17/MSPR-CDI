@@ -54,6 +54,7 @@ export class InformationPharmacieComponent implements OnInit {
     }
 
     getInformationPharmacie(id: number): Informations[] {
+        this.informations = [];
         this.pharmacie = this.pharmacies.filter(x => x.id === id);
         this.appService.getInformationsFromPharmacie(id).toPromise()
             .then(information => {
