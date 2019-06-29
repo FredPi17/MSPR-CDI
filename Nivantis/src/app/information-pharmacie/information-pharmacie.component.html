@@ -1,0 +1,57 @@
+<h1> Informations Pharmacie :
+  <select (change)="onSelect($event.target.value)">
+    <option *ngFor="let pharmacie of pharmacies"
+            [value]="pharmacie.id">{{ pharmacie.nom }}</option>
+  </select>
+</h1>
+
+
+<div *ngIf="selected">
+  <br />
+  <hr>
+  <div>
+    <label>Nom :
+        {{ pharmacie[0].nom }}
+    </label>
+    <br />
+    <label>Adresse :
+        {{ pharmacie[0].adresse }}
+    </label>
+    <br />
+    <label>Code Postal :
+        {{ pharmacie[0].CP }}
+    </label>
+    <br />
+    <label>Ville :
+        {{ pharmacie[0].ville }}
+    </label>
+    <br />
+    <label>Personnel :
+        {{ pharmacie[0].nbPersonnel }}
+    </label>
+    <hr />
+    <div *ngFor="let select of selected">
+      <label>Medicament :
+          {{ select.nom }}
+      </label>
+      <br/>
+      <label>Prix :
+          {{ select.prix }} €
+      </label>
+      <br/>
+      <label>Besoin :
+        {{ select.besoin }}
+      </label>
+      <br/>
+      <label>Vente :
+        {{ select.ventes }}
+      </label>
+      <br/>
+      <label>Date de dernière formation :
+        {{ select.derniereFormation }}
+      </label>
+      <br />
+      <br />
+    </div>
+  </div>
+</div>
