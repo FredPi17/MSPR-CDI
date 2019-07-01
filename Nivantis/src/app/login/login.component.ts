@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
             .subscribe((val) => {
                 if (val.response.length === 1) {
                     if (val.response[0].statut === 'ADMIN') {
-                        this.router.navigateByUrl('home');
+                        this.router.navigateByUrl('adminFormulaire');
                     }
                 } else {
                     this.showErrorMessage = true;
