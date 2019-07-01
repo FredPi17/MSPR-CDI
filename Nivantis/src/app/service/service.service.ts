@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
     providedIn: 'root'
 })
 export class ServiceService {
-    public resourceUrlAPI = 'http://localhost:3060/api';
+    public resourceUrlAPI = 'http://fredericpinaud.ddns.net:3060/api';
 
     constructor(protected http: HttpClient) {
     }
