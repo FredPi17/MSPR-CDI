@@ -1,0 +1,11 @@
+directories:
+  output: dist
+  buildResources: build
+appId: org.robferguson.BigTop
+files:
+  - filter:
+      - electron/main.js
+      - www/**/*
+mac:
+  category: productivity
+electronVersion: 5.0.1
