@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
             }
         )
             .subscribe((val) => {
+                // @ts-ignore
                 if (val.response.length === 1) {
+                    // @ts-ignore
                     if (val.response[0].statut === 'ADMIN') {
                         this.router.navigateByUrl('adminFormulaire');
                     }
